@@ -22,7 +22,25 @@ function displayPostData(posts){
         postContainer.appendChild(div);
 
     }
-    console.log(posts);
+   // console.log(posts);
 }
 
 loadPostData();
+
+
+function postCreate(){
+
+    fetch('https://jsonplaceholder.typicode.com/posts',{
+        method: 'POST',
+        body: JSON.stringify({
+          title: 'foo by mostofa kamal',
+          body: 'bar',
+          userId: 1,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+    .then(res => res.json())
+    .then(data => console.log(data));
+}
