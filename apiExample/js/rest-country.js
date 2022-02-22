@@ -48,7 +48,7 @@ const displayRestCountry = datas => {
          div.appendChild(img);
         div.appendChild(createButton);
          countryId.appendChild(div);
-        console.log(country);
+      //  console.log(country);
     });
    
    // console.log(datas);
@@ -58,6 +58,26 @@ const displayRestCountry = datas => {
 
 
 const displayCountryInfromation = name =>{
+    const url = `https://restcountries.com/v3.1/name/${name}`;
+    //console.log(url);
 
-    console.log(name);
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayCountryDetails(data[0]));
+}
+
+
+const displayCountryDetails = country => {
+    const detaitls = document.getElementById('country-details');
+
+    detaitls.style.background = 'blue';
+    detaitls.style.fontSize = '25px';
+    detaitls.style.border = '2px solid red';
+    detaitls.innerHTML = `
+        <h2>Countr Name: ${country.name.common} </h2>
+        <p>City: ${country.capital[0]}</p>
+        <p>population: ${country.population} </p>
+    `;
+    
+    console.log(country);
 }
