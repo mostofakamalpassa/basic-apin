@@ -4,7 +4,7 @@ const loadReastCountry = () =>{
     fetch('https://restcountries.com/v3.1/all')
     .then(res => res.json())
     .then(data => displayRestCountry(data))
-    .catch(error => alert('Something went wrong'))
+   // .catch(error => alert('Something went wrong'))
 }
 
 loadReastCountry();
@@ -26,6 +26,10 @@ const displayRestCountry = datas => {
         const p = document.createElement('p');
         const img = document.createElement('img');
 
+        const createButton = document.createElement('button');
+        createButton.setAttribute('onclick',`displayCountryInfromation('${country.name.common}')`);
+        createButton.innerText = 'Deatils';
+
        // const imgAttributes = document.createAttribute('src');
 
             //img.setAttribute(imgAttributes,country.flags.png) ;
@@ -42,9 +46,18 @@ const displayRestCountry = datas => {
          div.appendChild(h4);
          div.appendChild(p);
          div.appendChild(img);
+        div.appendChild(createButton);
          countryId.appendChild(div);
         console.log(country);
     });
    
    // console.log(datas);
+}
+
+
+
+
+const displayCountryInfromation = name =>{
+
+    console.log(name);
 }

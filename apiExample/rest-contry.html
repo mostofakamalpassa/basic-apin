@@ -11,12 +11,16 @@
             padding: 10px;
             margin: 20px;
         }
+        .countries{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
     </style>
 </head>
 <body>
     <h2>Rest country </h2>
 
-    <section id="country"></section>
+    <section id="country" class="countries"></section>
     <script src="./js/rest-country.js"></script>
 </body>
 </html>
